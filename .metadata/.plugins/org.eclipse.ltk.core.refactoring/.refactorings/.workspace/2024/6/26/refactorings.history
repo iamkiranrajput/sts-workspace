@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;EmailSend-1&apos; to &apos;MoviesRestAPI&apos;" description="Rename resource &apos;EmailSend-1&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/EmailSend-1" name="MoviesRestAPI" stamp="1719678557754" updateReferences="true"/>
+</session>

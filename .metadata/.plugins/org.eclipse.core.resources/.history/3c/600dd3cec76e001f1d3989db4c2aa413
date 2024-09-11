@@ -1,0 +1,5 @@
+package com.guardians.utils;
+
+public class SerializationUtil {
+
+}

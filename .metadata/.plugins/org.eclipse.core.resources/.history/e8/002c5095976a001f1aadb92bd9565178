@@ -1,0 +1,8 @@
+package com.guardians.dto;
+
+public class EmployeeResponse {
+	
+	private int status;
+	private String message;
+	private Object data;
+}

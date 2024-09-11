@@ -1,0 +1,15 @@
+package com.guardians.entity;
+
+import java.math.BigDecimal;
+
+
+public class RedisEmployee {
+	private Long empId;
+	private Long departmentId;
+	private String empName;
+	private String departmentName;
+	private String companyName;
+	private String designation;
+	private BigDecimal salary;
+	private String email;
+}

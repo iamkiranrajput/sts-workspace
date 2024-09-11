@@ -1,0 +1,37 @@
+package com.guardians;
+
+import java.io.IOException;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.guardians.dto.EmployeeResponse;
+import com.guardians.utils.SerializationUtil;
+
+@SpringBootApplication
+public class PracticeLoggingApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(PracticeLoggingApplication.class, args);
+		
+		 try {
+	            EmployeeResponse employeeResponse = new EmployeeResponse();
+	            employeeResponse.setStatus(200);
+	            employeeResponse.setMessage("Success");
+	            employeeResponse.setData("Some data");
+
+	            // Serialize
+	            String json = SerializationUtil.serializeEmployeeResponse(employeeResponse);
+	            System.out.println("Serialized JSON: " + json);
+
+	            // Deserialize
+	            EmployeeResponse deserialized = SerializationUtil.deserializeEmployeeResponse(json);
+	            System.out.println("Deserialized Object: " + deserialized);
+
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+	    
+	}
+
+}

@@ -1,0 +1,21 @@
+package com.guardians;
+
+import java.io.IOException;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.guardians.dto.EmployeeResponse;
+import com.guardians.utils.SerializationUtil;
+
+@SpringBootApplication
+public class PracticeLoggingApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(PracticeLoggingApplication.class, args);
+		
+		
+	    
+	}
+
+}

@@ -1,0 +1,23 @@
+package com.guardians.entity;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+import org.springframework.data.redis.core.RedisHash;
+
+import jakarta.persistence.Id;
+import lombok.Data;
+
+@RedisHash("Employee")
+@Data
+public class RedisEmployee implements Serializable {
+	@Id
+	private Long empId;
+	private Long departmentId;
+	private String empName;
+	private String departmentName;
+	private String companyName;
+	private String designation;
+	private BigDecimal salary;
+	private String email;
+}

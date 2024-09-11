@@ -1,0 +1,5 @@
+package com.guardians.models;
+
+public class User {
+
+}

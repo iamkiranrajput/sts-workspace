@@ -1,0 +1,18 @@
+package com.guardians.utils;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.guardians.dto.EmployeeResponse;
+import java.io.IOException;
+
+public class SerializationUtil {
+
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+
+    public static String serializeEmployeeResponse(EmployeeResponse employeeResponse) throws IOException {
+        return objectMapper.writeValueAsString(employeeResponse);
+    }
+
+    public static EmployeeResponse deserializeEmployeeResponse(String json) throws IOException {
+        return objectMapper.readValue(json, EmployeeResponse.class);
+    }
+}

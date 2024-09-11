@@ -1,0 +1,5 @@
+package com.guardians.exception;
+
+public class employeeNotFoundException {
+	
+}

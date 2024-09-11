@@ -1,0 +1,75 @@
+package com.guardians.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.guardians.dto.EmployeeDTO;
+import com.guardians.dto.EmployeeResponse;
+import com.guardians.services.EmployeeServices;
+
+import lombok.extern.slf4j.Slf4j;
+
+@RestController
+@RequestMapping("/api/employees")
+@Slf4j  
+public class EmployeeController {
+    
+    @Autowired
+    private EmployeeServices employeeService;
+    
+    // Register Employee (POST) - Returns 201 Created for success
+    @PostMapping("/")
+    public ResponseEntity<EmployeeResponse> registerEmployee(@RequestBody EmployeeDTO employeeDto){
+        log.info("Registering new employee with email: {}", employeeDto.getEmail());
+
+        EmployeeResponse response = employeeService.registerEmployee(employeeDto);
+
+        log.info("Employee registered successfully");
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    // Get Employee by ID (GET) - Returns 200 OK for success
+    @GetMapping("/{employeeId}")
+    public ResponseEntity<EmployeeResponse> getEmployee(@PathVariable Integer employeeId){
+        log.info("Fetching employee with ID: {}", employeeId);
+
+        EmployeeResponse response = employeeService.getEmployee(employeeId);
+
+        log.info("Employee with ID {} retrieved successfully", employeeId);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{employeeId}")
+    public ResponseEntity<EmployeeResponse> deleteEmployee(@PathVariable Integer employeeId){
+        log.info("Deleting employee with ID: {}", employeeId);
+
+        EmployeeResponse response = employeeService.deleteEmployee(employeeId);
+
+        log.info("Employee with ID {} deleted successfully", employeeId);
+        return new ResponseEntity<>(response, HttpStatus.NO_CONTENT);  // 204 No Content is appropriate for DELETE
+    }
+
+    // Update Employee (PUT) - Returns 200 OK for success
+    @PutMapping("/{employeeId}")
+    public ResponseEntity<EmployeeResponse> updateEmployee(@PathVariable Integer employeeId, @RequestBody EmployeeDTO employeeDTO){
+        log.info("Updating employee with ID: {}", employeeId);
+
+        EmployeeResponse response = employeeService.updateEmployee(employeeId, employeeDTO);
+
+        log.info("Employee with ID {} updated successfully", employeeId);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    // Get All Employees (GET) - Returns 200 OK for success
+    @GetMapping("/")
+    public ResponseEntity<EmployeeResponse> getAllEmployee(){
+        log.info("Fetching all employees");
+
+        EmployeeResponse response = employeeService.getAllEmployee();
+
+        log.info("All employee records retrieved successfully");
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+}

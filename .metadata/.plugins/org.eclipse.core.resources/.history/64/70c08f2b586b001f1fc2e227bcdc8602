@@ -1,0 +1,23 @@
+package com.guardians.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.guardians.dto.EmployeeResponse;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+	
+	
+	@ExceptionHandler(EmployeeNotFoundException.class)
+	public ResponseEntity<EmployeeResponse> handleEmployeeNotFoundException(EmployeeNotFoundException ex){
+		EmployeeResponse response = new EmployeeResponse();
+		response.setMessage("An Error Occured: "+ex.getMessage());
+		response.setStatus(HttpStatus.NOT_FOUND.value());
+		
+		return new ResponseEntity<>(response,HttpStatus.NOT_FOUND); 
+	}
+	
+}

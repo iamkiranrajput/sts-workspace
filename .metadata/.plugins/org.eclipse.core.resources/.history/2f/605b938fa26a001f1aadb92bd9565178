@@ -1,0 +1,15 @@
+package com.guardians.services;
+
+import java.util.List;
+
+import com.guardians.dto.EmployeeDTO;
+import com.guardians.dto.EmployeeResponse;
+
+public interface EmployeeServices {
+	EmployeeResponse registerEmployee(EmployeeDTO employeeDto);
+	EmployeeDTO getEmployee(Integer employeeId);
+	List<EmployeeDTO> getAllEmployee();
+	EmployeeResponse deleteEmployee(Long employeeId);
+	EmployeeResponse updateEmployee(Long employeeId, EmployeeDTO employeeDto);
+	
+}

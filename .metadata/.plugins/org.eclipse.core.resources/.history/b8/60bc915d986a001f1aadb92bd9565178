@@ -1,0 +1,11 @@
+package com.guardians.services;
+
+import com.guardians.dto.EmployeeDTO;
+import com.guardians.dto.EmployeeResponse;
+
+public interface EmployeeServices {
+	EmployeeResponse registerEmployee(EmployeeDTO employeeDto);
+	EmployeeResponse getEmployee(Long employeeId);
+	
+	
+}

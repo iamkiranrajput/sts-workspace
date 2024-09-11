@@ -1,0 +1,17 @@
+package com.security.config;
+
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.SecurityFilterChain;
+
+public class SpringSecurity{
+	
+	SecurityFilterChain defaultSecurityDilterChain(HttpSecurity http) {
+		
+		
+		
+		return null;
+		
+	}
+
+	
+}

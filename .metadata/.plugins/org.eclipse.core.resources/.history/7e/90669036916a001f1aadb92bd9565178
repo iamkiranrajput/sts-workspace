@@ -1,0 +1,18 @@
+package com.guardians.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = demo)
+public class Employee {
+	private Integer empId;
+	private Integer departmentId;
+	private String empName;
+	private String departmentName;
+	private String companyName;
+	private String designation;
+	
+	
+
+}

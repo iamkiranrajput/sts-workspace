@@ -1,0 +1,24 @@
+package com.guardians.entity;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = demo)
+public class Employee {
+	@Id
+	@Cascade(CascadeType.ALL)
+	private Integer empId;
+	private Integer departmentId;
+	private String empName;
+	private String departmentName;
+	private String companyName;
+	private String designation;
+	
+	
+
+}
